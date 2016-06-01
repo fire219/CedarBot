@@ -41,7 +41,7 @@ channel = "#CedarTest" # Channel
 botnick = "CedarBot" # Bot's nick
 curses = ['fuck', 'shit', 'damn', 'dammit', 'cunt', 'tits', 'bitch', ' cock ', 'dick', 'jizz', 'nigger', 'queer', 'slut', 'twat', 'whore', 'pussy', ' hell ', 'spick', 'wetback', 'dike', 'bastard', 'towelhead', 'clit', 'douche', 'bugger', ' fuk ', '$hit', 'godverdomme', 'miljaardeju', 'kut', 'klote', 'verdomme', 'godver', 'nondedju', 'mieljaar', 'tering', 'sodemieter', 'merde', 'conneries', 'branleur', 'connard', 'schwanz', 'arsch', 'hurensohn', 'verdammt', 'puta', 'foda', ] #Profanity list for swear filter (used on first run)
 cursesns = ['fuck', 'shit', 'damn', 'dammit', 'cunt', 'tits', 'bitch', 'cock', 'dick', 'jizz', 'nigger', 'queer', 'slut', 'twat', 'whore', 'pussy', 'hell', 'spick', 'wetback', 'dike', 'bastard', 'towelhead', 'clit', 'douche', 'bugger', 'fuk', '$hit', 'godverdomme', 'miljaardeju', 'kut', 'klote', 'verdomme', 'godver', 'nondedju', 'mieljaar', 'tering', 'sodemieter', 'merde', 'conneries', 'branleur', 'connard', 'schwanz', 'arsch', 'hurensohn', 'verdammt', 'puta', 'foda',] #No-spaces profanity list for swear filter stage 2 (used on first run)  
-selfref = ['h2bot', 'himself', 'hisself', 'itself', 'dick', 'cock', 'hydrobot', 'hydrogenbot', ' its ', 'thyself'] #Self (and bad thing) references for fun commands
+selfref = [botnick, 'himself', 'hisself', 'itself', 'dick', 'cock', 'CB', ' its ', 'thyself'] #Self (and bad thing) references for fun commands
 log = 1 #create log file?
 filelocation = "C:\\Users\\Matthew\\Documents\\hydrobot" #where to create bot files
 password = "cedarbotexppass"
@@ -148,7 +148,7 @@ def ping(): # IRC PING responder
  
   ircsock.send("PONG :" + ircmsg.strip("PING :") + "/n")
   print("PONG :" + ircmsg.strip("PING :"))
-  joinchan(channel)
+  #joinchan(channel) -- This may have to be uncommented to join some networks, but causes issues!
  
  
 def joinchan(chan): # This function is used to join channels.
@@ -337,7 +337,7 @@ def unbanloop(): #tempban parse 'n unban MULTITHREAD EDITION :O
 			tbf.close()
 			tbf2.close()		
 	 tbanparse = tbanparse + 1	
-
+	time.sleep(0.1)	
    except KeyError:
 		tbf2 = open(filelocation+'/tbanned2', 'w')
 		tbanned2.pop(tbanparse)
@@ -760,10 +760,10 @@ while True: # Be careful with these! it might send you to an infinite loop
 	#seenlistloader()
 	threadsrunning = 1
 	
-
 """	
   if (mods != []):
 	seenlistf = open(os.path.normpath(filelocation+'/seenlist'), 'wb')
 	pickle.dump(seenlist, seenlistf)  
 	seenlistf.close()
 """
+	

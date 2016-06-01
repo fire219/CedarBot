@@ -1,0 +1,10 @@
+CHANGELOG:
+
+1.0.1 
+
+- Minor changes to "anti-selfharm" list, which was woefully out of date
+- Should use much less CPU (from 25% to ~0% on my system)
+
+1.0.0 
+
+- Initial public release
